@@ -30,7 +30,7 @@
   },
   "entities": {
     "Patient": {
-      "source": "dbo.tbl_Patient",
+      "source": "tbl_Patient",
       "permissions": [
         {
           "actions": ["*"],
