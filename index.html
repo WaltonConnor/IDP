@@ -10,22 +10,23 @@
 <body>
     <div class="fullbox" id="TitleBox">SQL Database</div>
     <div class="fullbox" id="InformationBox">Please use the boxes below to select the table you wold like to search, as well as any details you would like to filter by.</div>
-
+    <div class="fullbox" id="filtercontrols">
+        <select id="filterbox" name="tablefilter">
+            <option value="Patient">Patient</option>
+            <option value="Staff">Staff</option>
+            <option value="Appointments">Appointments</option>
+        </select>
+        <select id="filterbox" name="filter1"></select>
+        <select id="filterbox" name="filter2"></select>
+    </div>
 
     <div>
-        <button id="list" onclick="list()">List</button>
-        <button id="get" onclick="get()">Get</button>
+        <button id="get" onclick="search()">Get</button>
     </div>
 
 
     <script>
-        async function list() {
-        const endpoint = '/data-api/rest/Patient';
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        console.table(data.value);
-        }
-        async function get() {
+        async function search() {
         const id = 1;
         const endpoint = `/data-api/rest/Patient/Patient_ID`;
         const response = await fetch(`${endpoint}/${id}`);
