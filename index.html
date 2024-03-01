@@ -11,13 +11,29 @@
     <div class="fullbox" id="TitleBox">SQL Database</div>
     <div class="fullbox" id="InformationBox">Please use the boxes below to select the table you wold like to search, as well as any details you would like to filter by.</div>
     <div class="fullbox" id="filtercontrols">
-        <select id="filterbox" name="tablefilter">
-            <option value="Patient">Patient</option>
-            <option value="Staff">Staff</option>
-            <option value="Appointments">Appointments</option>
-        </select>
-        <select id="filterbox" name="filter1"></select>
-        <select id="filterbox" name="filter2"></select>
+        <form action="/filter_page.php">
+            <label for="tablefilter">Choose a table to retrieve data from:</label>
+            <select id="filterbox" name="tablefilter">
+                <option value="Patient">Patient</option>
+                <option value="Staff">Staff</option>
+                <option value="Appointments">Appointments</option>
+            </select>
+            <label for="locationfilter">Choose a location to filter the data:</label>
+            <select id="filterbox" name="location filter">
+                <option value="Hawthorn Health Center">Hawthorn Health Center</option>
+                <option value="Prairie Rose Family Practice">Prairie Rose Family Practice</option>
+                <option value="Sunnyvale Medical Clinic">Sunnyvale Medical Clinic</option>
+            </select>
+            <label for="allergyfilter">Choose an allergy to filter the data:</label>
+            <select id="filterbox" name="allergyfilter">
+                <option value="Animals">Animals</option>
+                <option value="Food">Food</option>
+                <option value="Hay Fever">Hay Fever</option>
+                <option value="Dust">Dust</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
     <div>
