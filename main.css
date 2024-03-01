@@ -1,0 +1,16 @@
+*{
+    background-color: lightgrey;
+}
+
+#TitleBox{
+    width: 98%;
+    margin: auto;
+    font-size: 32px;
+    text-align: center;
+}
+#InformationBox{
+    width: 98%;
+    margin: auto;
+    font-size: 20px;
+    text-align: center;
+}

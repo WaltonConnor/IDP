@@ -7,14 +7,16 @@
     <title>IDP Front End</title>
 </head>
 <body>
-    <h1>SQL Database</h1>
-    <blockquote>
-        Please use the boxes below to select the table you wold like to search, as well as any details you would like to filter by.
-    </blockquote>
+    <div class="fullbox" id="TitleBox">SQL Database</div>
+    <div class="fullbox" id="InformationBox">Please use the boxes below to select the table you wold like to search, as well as any details you would like to filter by.</div>
+
+
     <div>
         <button id="list" onclick="list()">List</button>
         <button id="get" onclick="get()">Get</button>
     </div>
+
+
     <script>
         async function list() {
         const endpoint = '/data-api/rest/Patient';
