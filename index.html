@@ -15,7 +15,7 @@
         <form>
             <!-- Initial selection for filtering data -->
             <label for="tablefilter">Choose a table to retrieve data from:</label>
-            <select id="tablefilter" class="filterbox" name="tablefilter" onchange="tableCheck()">
+            <select id="filterbox" class="tablefilter" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
                 <option id="patientselect" value="Patient">Patient</option>
                 <option id="locationselect" value="Location">Location</option>
@@ -24,14 +24,14 @@
             <br></br>
             <!-- Filter boxes for patient selection -->
             <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
-            <select id="sexfilter" class="filterbox" name="sex filter" style="display: none;">
+            <select id="filterbox" class="sexfilter" name="sex filter" style="display: none;">
                 <option selected disabled>Choose a sex:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
             <br></br>
             <label id="allergyfilterlabel" for="allergyfilter" style="display: none;">Choose an allergy to filter the data: </label>
-            <select id="allergyfilter" class="filterbox" name="allergyfilter" style="display: none;">
+            <select id="filterbox" class="allergyfilter" name="allergyfilter" style="display: none;">
                 <option selected disabled>Choose an allergy:</option>
                 <option value="Animals">Animals</option>
                 <option value="Food">Food</option>
@@ -42,7 +42,7 @@
             <br></br>
             <!-- Filter box for location selection -->
             <label id="locationtypefilterlabel" for="locationtypefilter" style="display: none;">Choose the type of location to filter the data: </label>
-            <select id="locationtypefilter" class="filterbox" name="locationtype filter" style="display: none;">
+            <select id="filterbox" class="locationtypefilter" name="locationtype filter" style="display: none;">
                 <option selected disabled>Choose a location type:</option>
                 <option value="Clinic">Clinic</option>
                 <option value="Hospital">Hospital</option>
@@ -51,7 +51,7 @@
             <br></br>
             <!-- Filter boxes for appointment selection -->
             <label id="appointmentlocationfilterlabel" for="appointmentlocationfilter" style="display: none;">Choose the appointment location to filter the data: </label>
-            <select id="appointmentlocationfilter" class="filterbox" name="appointmentlocation filter" style="display: none;">
+            <select id="filterbox" class="appointmentlocationfilter" name="appointmentlocation filter" style="display: none;">
                 <option selected disabled>Choose a location:</option>
                 <option value="1">1 - Hawthorn Health Center</option>
                 <option value="2">2 - Prairie Rose Family Practice</option>
@@ -78,60 +78,56 @@
 
     <script>
         function tableCheck() {
-            if (document.getElementById("patientselect").selected) {
-                document.getElementById("locationtypefilterlabel").style.display = "none";
-                document.getElementById("locationtypefilter").style.display = "none";
-                // document.getElementById("locationtypefilter").disabled = true;
-                document.getElementById("appointmentlocationfilterlabel").style.display = "none";
-                document.getElementById("appointmentlocationfilter").style.display = "none";
-                // document.getElementById("appointmentlocationfilter").disabled = true;
+            if (document.getElementsByClassName("patientselect").selected) {
+                document.getElementsByClassName("locationtypefilterlabel").style.display = "none";
+                document.getElementsByClassName("locationtypefilter").style.display = "none";
+                // document.getElementsByClassName("locationtypefilter").disabled = true;
+                document.getElementsByClassName("appointmentlocationfilterlabel").style.display = "none";
+                document.getElementsByClassName("appointmentlocationfilter").style.display = "none";
+                // document.getElementsByClassName("appointmentlocationfilter").disabled = true;
 
-                document.getElementById("allergyfilterlabel").style.display = "block";
-                document.getElementById("allergyfilter").style.display = "block";
-                // document.getElementById("allergyfilter").disabled = false;
-                document.getElementById("sexfilterlabel").style.display = "block";
-                document.getElementById("sexfilter").style.display = "block";
-                // document.getElementById("sexfilter").disabled = false;
-            } else if (document.getElementById("locationselect").selected) {
-                document.getElementById("allergyfilterlabel").style.display = "none";
-                document.getElementById("allergyfilter").style.display = "none";
-                // document.getElementById("allergyfilter").disabled = true;
-                document.getElementById("sexfilterlabel").style.display = "none";
-                document.getElementById("sexfilter").style.display = "none";
-                // document.getElementById("sexfilter").disabled = true;
-                document.getElementById("appointmentlocationfilterlabel").style.display = "none";
-                document.getElementById("appointmentlocationfilter").style.display = "none";
-                // document.getElementById("appointmentlocationfilter").disabled = true;
+                document.getElementsByClassName("allergyfilterlabel").style.display = "block";
+                document.getElementsByClassName("allergyfilter").style.display = "block";
+                // document.getElementsByClassName("allergyfilter").disabled = false;
+                document.getElementsByClassName("sexfilterlabel").style.display = "block";
+                document.getElementsByClassName("sexfilter").style.display = "block";
+                // document.getElementsByClassName("sexfilter").disabled = false;
+            } else if (document.getElementsByClassName("locationselect").selected) {
+                document.getElementsByClassName("allergyfilterlabel").style.display = "none";
+                document.getElementsByClassName("allergyfilter").style.display = "none";
+                // document.getElementsByClassName("allergyfilter").disabled = true;
+                document.getElementsByClassName("sexfilterlabel").style.display = "none";
+                document.getElementsByClassName("sexfilter").style.display = "none";
+                // document.getElementsByClassName("sexfilter").disabled = true;
+                document.getElementsByClassName("appointmentlocationfilterlabel").style.display = "none";
+                document.getElementsByClassName("appointmentlocationfilter").style.display = "none";
+                // document.getElementsByClassName("appointmentlocationfilter").disabled = true;
                 
-                document.getElementById("locationtypefilterlabel").style.display = "block";
-                document.getElementById("locationtypefilter").style.display = "block";
-                // document.getElementById("locationtypefilter").disabled = false;
-            } else if (document.getElementById("appointmentselect").selected){
-                document.getElementById("allergyfilterlabel").style.display = "none";
-                document.getElementById("allergyfilter").style.display = "none";
-                // document.getElementById("allergyfilter").disabled = true;
-                document.getElementById("sexfilterlabel").style.display = "none";
-                document.getElementById("sexfilter").style.display = "none";
-                // document.getElementById("sexfilter").disabled = true;
-                document.getElementById("locationtypefilterlabel").style.display = "none";
-                document.getElementById("locationtypefilter").style.display = "none";
-                // document.getElementById("locationtypefilter").disabled = true;
+                document.getElementsByClassName("locationtypefilterlabel").style.display = "block";
+                document.getElementsByClassName("locationtypefilter").style.display = "block";
+                // document.getElementsByClassName("locationtypefilter").disabled = false;
+            } else if (document.getElementsByClassName("appointmentselect").selected){
+                document.getElementsByClassName("allergyfilterlabel").style.display = "none";
+                document.getElementsByClassName("allergyfilter").style.display = "none";
+                // document.getElementsByClassName("allergyfilter").disabled = true;
+                document.getElementsByClassName("sexfilterlabel").style.display = "none";
+                document.getElementsByClassName("sexfilter").style.display = "none";
+                // document.getElementsByClassName("sexfilter").disabled = true;
+                document.getElementsByClassName("locationtypefilterlabel").style.display = "none";
+                document.getElementsByClassName("locationtypefilter").style.display = "none";
+                // document.getElementsByClassName("locationtypefilter").disabled = true;
 
-                document.getElementById("appointmentlocationfilterlabel").style.display = "block";
-                document.getElementById("appointmentlocationfilter").style.display = "block";
-                // document.getElementById("appointmentlocationfilter").disabled = false;
+                document.getElementsByClassName("appointmentlocationfilterlabel").style.display = "block";
+                document.getElementsByClassName("appointmentlocationfilter").style.display = "block";
+                // document.getElementsByClassName("appointmentlocationfilter").disabled = false;
             }
         }
     </script>
     <script>
         function filterData(){
-            var sel = document.getElementsByClassName('filterbox');
-            if (option == 'undefined'){
-                console.log("filter is empty");
-            }else{
-                var option = sel.options[sel.selectedIndex].value;
-                console.log(option);
-            }
+            var sel = document.getElementById('filterbox');
+            var option = sel.options[sel.selectedIndex].value;
+            console.log(option);
         }
     </script>
 
