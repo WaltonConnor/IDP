@@ -81,7 +81,7 @@
             tableoutput = document.getElementById("tablefilterbox");
             var selectedText = tableoutput.options[tableoutput.selectedIndex].text;
             console.log(selectedText);
-            switch (tableoutput){
+            switch (selectedText){
                 case "Patient":
                     document.getElementById("sexfilterlabel").style.display="block";
                     document.getElementById("sexfilter").style.display="block";
