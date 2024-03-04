@@ -41,14 +41,14 @@
             </select>
             <br></br>
             <!-- Filter box for location selection -->
-            <!-- <label id="locationtypefilterlabel" for="locationtypefilter" style="display: none;">Choose the type of location to filter the data: </label>
-            <select id="locationtypefilter" class="filterbox" name="locationtype filter" style="display: none;">
+            <label id="locationtypefilterlabel" for="locationtypefilterbox" style="display: none;">Choose the type of location to filter the data: </label>
+            <select id="locationtypefilterbox" name="locationtype filter" style="display: none;" onchange="locationtypeCheck()">
                 <option selected disabled>Choose a location type:</option>
                 <option value="Clinic">Clinic</option>
                 <option value="Hospital">Hospital</option>
                 <option value="Pharmacy">Pharmacy</option>
             </select>
-            <br></br> -->
+            <br></br>
             <!-- Filter boxes for appointment selection -->
             <!-- <label id="appointmentlocationfilterlabel" for="appointmentlocationfilter" style="display: none;">Choose the appointment location to filter the data: </label>
             <select id="appointmentlocationfilter" class="filterbox" name="appointmentlocation filter" style="display: none;">
@@ -83,6 +83,9 @@
             console.log(selectedText);
             switch (selectedText){
                 case "Patient":
+                    document.getElementById("locationtypefilterlabel").style.display="none";
+                    document.getElementById("locationtypefilterbox").style.display="none";
+
                     document.getElementById("sexfilterlabel").style.display="block";
                     document.getElementById("sexfilterbox").style.display="block";
                     document.getElementById("allergyfilterlabel").style.display="block";
@@ -93,12 +96,17 @@
                     document.getElementById("sexfilterbox").style.display="none";
                     document.getElementById("allergyfilterlabel").style.display="none";
                     document.getElementById("allergyfilterbox").style.display="none";
+
+                    document.getElementById("locationtypefilterlabel").style.display="block";
+                    document.getElementById("locationtypefilterbox").style.display="block";
                     break;
                 case "Appointments":
                     document.getElementById("sexfilterlabel").style.display="none";
                     document.getElementById("sexfilterbox").style.display="none";
                     document.getElementById("allergyfilterlabel").style.display="none";
                     document.getElementById("allergyfilterbox").style.display="none";
+                    document.getElementById("locationtypefilterlabel").style.display="none";
+                    document.getElementById("locationtypefilterbox").style.display="none";
                     break;
                 default:
                     console.log("w-w-w whats goin on? *queue crazy frog*")
@@ -113,6 +121,11 @@
             tableoutput = document.getElementById("allergyfilterbox");
             var selectedAllergy = tableoutput.options[tableoutput.selectedIndex].text;
             console.log(selectedAllergy);
+        }
+        function locationtypeCheck(){
+            tableoutput = document.getElementById("locationtypefilterbox");
+            var selectedLocationType = tableoutput.options[tableoutput.selectedIndex].text;
+            console.log(selectedLocationType);
         }
     </script>
 
