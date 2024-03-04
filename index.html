@@ -81,33 +81,45 @@
             if (document.getElementById("patientselect").selected) {
                 document.getElementById("locationtypefilterlabel").style.display = "none";
                 document.getElementById("locationtypefilter").style.display = "none";
+                document.getElementById("locationtypefilter").disabled = true;
                 document.getElementById("appointmentlocationfilterlabel").style.display = "none";
                 document.getElementById("appointmentlocationfilter").style.display = "none";
+                document.getElementById("appointmentlocationfilter").disabled = true;
 
                 document.getElementById("allergyfilterlabel").style.display = "block";
                 document.getElementById("allergyfilter").style.display = "block";
+                document.getElementById("allergyfilter").disabled = false;
                 document.getElementById("sexfilterlabel").style.display = "block";
                 document.getElementById("sexfilter").style.display = "block";
+                document.getElementById("sexfilter").disabled = false;
             } else if (document.getElementById("locationselect").selected) {
                 document.getElementById("allergyfilterlabel").style.display = "none";
                 document.getElementById("allergyfilter").style.display = "none";
+                document.getElementById("allergyfilter").disabled = true;
                 document.getElementById("sexfilterlabel").style.display = "none";
                 document.getElementById("sexfilter").style.display = "none";
+                document.getElementById("sexfilter").disabled = true;
                 document.getElementById("appointmentlocationfilterlabel").style.display = "none";
                 document.getElementById("appointmentlocationfilter").style.display = "none";
+                document.getElementById("appointmentlocationfilter").disabled = true;
                 
                 document.getElementById("locationtypefilterlabel").style.display = "block";
                 document.getElementById("locationtypefilter").style.display = "block";
+                document.getElementById("locationtypefilter").disabled = false;
             } else if (document.getElementById("appointmentselect").selected){
                 document.getElementById("allergyfilterlabel").style.display = "none";
                 document.getElementById("allergyfilter").style.display = "none";
+                document.getElementById("allergyfilter").disabled = true;
                 document.getElementById("sexfilterlabel").style.display = "none";
                 document.getElementById("sexfilter").style.display = "none";
+                document.getElementById("sexfilter").disabled = true;
                 document.getElementById("locationtypefilterlabel").style.display = "none";
                 document.getElementById("locationtypefilter").style.display = "none";
+                document.getElementById("locationtypefilter").disabled = true;
 
                 document.getElementById("appointmentlocationfilterlabel").style.display = "block";
                 document.getElementById("appointmentlocationfilter").style.display = "block";
+                document.getElementById("appointmentlocationfilter").disabled = false;
             }
         }
     </script>
