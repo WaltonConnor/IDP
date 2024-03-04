@@ -18,7 +18,7 @@
             <select id="tablefilter" class="filterbox" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
                 <option id="patientselect" value="Patient">Patient</option>
-                <option id="locationselect" value="Location">Staff</option>
+                <option id="locationselect" value="Location">Location</option>
                 <option id="appointmentselect" value="Appointments">Appointments</option>
             </select>
             <br></br>
@@ -33,12 +33,14 @@
 
             <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
             <select id="sexfilter" class="filterbox" name="sex filter" style="display: none;">
+                <option selected disabled>Choose a sex:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
             <br></br>
             <label id="allergyfilterlabel" for="allergyfilter" style="display: none;">Choose an allergy to filter the data: </label>
             <select id="allergyfilter" class="filterbox" name="allergyfilter" style="display: none;">
+                <option selected disabled>Choose an allergy:</option>
                 <option value="Animals">Animals</option>
                 <option value="Food">Food</option>
                 <option value="Hay Fever">Hay Fever</option>
@@ -49,14 +51,16 @@
 
             <label id="locationtypefilterlabel" for="locationtypefilter" style="display: none;">Choose the type of location to filter the data: </label>
             <select id="locationtypefilter" class="filterbox" name="locationtype filter" style="display: none;">
+                <option selected disabled>Choose a location type:</option>
                 <option value="Clinic">Clinic</option>
                 <option value="Hospital">Hospital</option>
                 <option value="Pharmacy">Pharmacy</option>
             </select>
             <br></br>
 
-            <label id="appointmentlocationfilterlabel" for="appointmentlocationfilter" style="display: none;">Choose the type of location to filter the data: </label>
+            <label id="appointmentlocationfilterlabel" for="appointmentlocationfilter" style="display: none;">Choose the appointment location to filter the data: </label>
             <select id="appointmentlocationfilter" class="filterbox" name="appointmentlocation filter" style="display: none;">
+                <option selected disabled>Choose a location:</option>
                 <option value="1">1 - Hawthorn Health Center</option>
                 <option value="2">2 - Prairie Rose Family Practice</option>
                 <option value="3">3 - Sunnyvale Medical Clinic</option>
