@@ -30,8 +30,8 @@
                 <option value="Female">Female</option>
             </select>
             <br></br>
-            <!-- <label id="allergyfilterlabel" for="allergyfilter">Choose an allergy to filter the data: </label>
-            <select id="filterbox" class="allergyfilter" name="allergyfilter">
+            <label id="allergyfilterlabel" for="allergyfilter" style="display: none;">Choose an allergy to filter the data: </label>
+            <select id="allergyfilterbox" name="allergyfilter" style="display: none;" onchange="allergyCheck()">
                 <option selected disabled>Choose an allergy:</option>
                 <option value="Animals">Animals</option>
                 <option value="Food">Food</option>
@@ -39,7 +39,7 @@
                 <option value="Dust">Dust</option>
                 <option value="Other">Other</option>
             </select>
-            <br></br> -->
+            <br></br>
             <!-- Filter box for location selection -->
             <!-- <label id="locationtypefilterlabel" for="locationtypefilter" style="display: none;">Choose the type of location to filter the data: </label>
             <select id="locationtypefilter" class="filterbox" name="locationtype filter" style="display: none;">
@@ -85,10 +85,20 @@
                 case "Patient":
                     document.getElementById("sexfilterlabel").style.display="block";
                     document.getElementById("sexfilterbox").style.display="block";
+                    document.getElementById("allergyfilterlabel").style.display="block";
+                    document.getElementById("allergyfilterbox").style.display="block";
                     break;
                 case "Locations":
+                    document.getElementById("sexfilterlabel").style.display="none";
+                    document.getElementById("sexfilterbox").style.display="none";
+                    document.getElementById("allergyfilterlabel").style.display="none";
+                    document.getElementById("allergyfilterbox").style.display="none";
                     break;
                 case "Appointments":
+                    document.getElementById("sexfilterlabel").style.display="none";
+                    document.getElementById("sexfilterbox").style.display="none";
+                    document.getElementById("allergyfilterlabel").style.display="none";
+                    document.getElementById("allergyfilterbox").style.display="none";
                     break;
                 default:
                     console.log("w-w-w whats goin on? *queue crazy frog*")
@@ -98,6 +108,11 @@
             tableoutput = document.getElementById("sexfilterbox");
             var selectedSex = tableoutput.options[tableoutput.selectedIndex].text;
             console.log(selectedSex);
+        }
+        function allergyCheck(){
+            tableoutput = document.getElementById("allergyfilterbox");
+            var selectedAllergy = tableoutput.options[tableoutput.selectedIndex].text;
+            console.log(selectedAllergy);
         }
     </script>
 
