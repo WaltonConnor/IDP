@@ -18,26 +18,25 @@
             <select id="tablefilter" class="filterbox" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
                 <option id="patientselect" value="Patient">Patient</option>
-                <option id="staffselect" value="Staff">Staff</option>
+                <option id="locationselect" value="Location">Staff</option>
                 <option id="appointmentselect" value="Appointments">Appointments</option>
             </select>
             <br></br>
 
-            <label id="locationfilterlabel" for="locationfilter" style="display: none;">Choose a location to filter the data: </label>
+            <!-- <label id="locationfilterlabel" for="locationfilter" style="display: none;">Choose a location to filter the data: </label>
             <select id="locationfilter" class="filterbox" name="location filter" style="display: none;">
                 <option value="Hawthorn Health Center">Hawthorn Health Center</option>
                 <option value="Prairie Rose Family Practice">Prairie Rose Family Practice</option>
                 <option value="Sunnyvale Medical Clinic">Sunnyvale Medical Clinic</option>
             </select>
-            <br></br>
+            <br></br> -->
 
             <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
             <select id="sexfilter" class="filterbox" name="sex filter" style="display: none;">
-                <option value="Hawthorn Health Center">Male</option>
-                <option value="Prairie Rose Family Practice">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
             </select>
             <br></br>
-
             <label id="allergyfilterlabel" for="allergyfilter" style="display: none;">Choose an allergy to filter the data: </label>
             <select id="allergyfilter" class="filterbox" name="allergyfilter" style="display: none;">
                 <option value="Animals">Animals</option>
@@ -45,6 +44,31 @@
                 <option value="Hay Fever">Hay Fever</option>
                 <option value="Dust">Dust</option>
                 <option value="Other">Other</option>
+            </select>
+            <br></br>
+
+            <label id="locationtypefilterlabel" for="locationtypefilter" style="display: none;">Choose the type of location to filter the data: </label>
+            <select id="locationtypefilter" class="filterbox" name="locationtype filter" style="display: none;">
+                <option value="Clinic">Clinic</option>
+                <option value="Hospital">Hospital</option>
+                <option value="Pharmacy">Pharmacy</option>
+            </select>
+            <br></br>
+
+            <label id="appointmentlocationfilterlabel" for="appointmentlocationfilter" style="display: none;">Choose the type of location to filter the data: </label>
+            <select id="appointmentlocationfilter" class="filterbox" name="appointmentlocation filter" style="display: none;">
+                <option value="1">1 - Hawthorn Health Center</option>
+                <option value="2">2 - Prairie Rose Family Practice</option>
+                <option value="3">3 - Sunnyvale Medical Clinic</option>
+                <option value="4">4 - Mapleleaf Family Practice</option>
+                <option value="5">5 - Lakeview Regional Hospital</option>
+                <option value="6">6 - Harborview Regional Hospital</option>
+                <option value="7">7 - Cypress Grove Clinic</option>
+                <option value="8">8 - Seaview Memorial Hospital</option>
+                <option value="9">9 - Seaview Memorial Hospital</option>
+                <option value="10">10 - Riverbend Regional Hospital</option>
+                <option value="11">11 - Mountainview Medical Clinic</option>
+                <option value="12">12 - Aspen Grove Medical Center</option>
             </select>
             <br></br>
 
@@ -59,16 +83,35 @@
     <script>
         function tableCheck() {
             if (document.getElementById("patientselect").selected) {
+                document.getElementById("locationtypefilterlabel").style.display = "none";
+                document.getElementById("locationtypefilter").style.display = "none";
+                document.getElementById("appointmentlocationfilterlabel").style.display = "none";
+                document.getElementById("appointmentlocationfilter").style.display = "none";
+
                 document.getElementById("allergyfilterlabel").style.display = "block";
                 document.getElementById("allergyfilter").style.display = "block";
                 document.getElementById("sexfilterlabel").style.display = "block";
                 document.getElementById("sexfilter").style.display = "block";
-            } else if (document.getElementById("staffselect").selected) {
-                document.getElementById("").style.display = "block";
+            } else if (document.getElementById("locationselect").selected) {
+                document.getElementById("allergyfilterlabel").style.display = "none";
+                document.getElementById("allergyfilter").style.display = "none";
+                document.getElementById("sexfilterlabel").style.display = "none";
+                document.getElementById("sexfilter").style.display = "none";
+                document.getElementById("appointmentlocationfilterlabel").style.display = "none";
+                document.getElementById("appointmentlocationfilter").style.display = "none";
+                
+                document.getElementById("locationtypefilterlabel").style.display = "block";
+                document.getElementById("locationtypefilter").style.display = "block";
             } else if (document.getElementById("appointmentselect").selected){
-                document.getElementById("").style.display = "block";
-            } else {
-                document.getElementById("").style.display = "none";
+                document.getElementById("allergyfilterlabel").style.display = "none";
+                document.getElementById("allergyfilter").style.display = "none";
+                document.getElementById("sexfilterlabel").style.display = "none";
+                document.getElementById("sexfilter").style.display = "none";
+                document.getElementById("locationtypefilterlabel").style.display = "none";
+                document.getElementById("locationtypefilter").style.display = "none";
+
+                document.getElementById("appointmentlocationfilterlabel").style.display = "block";
+                document.getElementById("appointmentlocationfilter").style.display = "block";
             }
         }
     </script>
