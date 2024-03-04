@@ -24,7 +24,7 @@
             <br></br>
             <!-- Filter boxes for patient selection -->
             <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
-            <select id="sexfilterbox" name="sexfilter" style="display: none;" onchange="sexCheck()">
+            <select id="sexfilterbox" name="sexfilter" style="display: none;" >
                 <option selected disabled>Choose a sex:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -93,14 +93,9 @@
             }
         }
         function sexCheck(){
-            if (document.getElementById("sexfilter").selectedIndex != ''){
-                tableoutput = document.getElementById("sexfilterbox");
-                var selectedSex = tableoutput.options[tableoutput.selectedIndex].text;
-                console.log(selectedSex);
-            }
-            else{
-                console.log("selectedSex");
-            }
+            tableoutput = document.getElementById("sexfilterbox");
+            var selectedSex = tableoutput.options[tableoutput.selectedIndex].text;
+            console.log(selectedSex);
         }
     </script>
 
