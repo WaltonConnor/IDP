@@ -12,8 +12,8 @@
     <div class="fullbox" id="InformationBox">Please use the boxes below to select the table you wold like to search, as well as any details you would like to filter by.</div>
 
     <div class="fullbox" id="filtercontrols">
-        <form action="/filter_page.php">
-
+        <form>
+            <!-- Initial selection for filtering data -->
             <label for="tablefilter">Choose a table to retrieve data from:</label>
             <select id="tablefilter" class="filterbox" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
@@ -22,15 +22,7 @@
                 <option id="appointmentselect" value="Appointments">Appointments</option>
             </select>
             <br></br>
-
-            <!-- <label id="locationfilterlabel" for="locationfilter" style="display: none;">Choose a location to filter the data: </label>
-            <select id="locationfilter" class="filterbox" name="location filter" style="display: none;">
-                <option value="Hawthorn Health Center">Hawthorn Health Center</option>
-                <option value="Prairie Rose Family Practice">Prairie Rose Family Practice</option>
-                <option value="Sunnyvale Medical Clinic">Sunnyvale Medical Clinic</option>
-            </select>
-            <br></br> -->
-
+            <!-- Filter boxes for patient selection -->
             <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
             <select id="sexfilter" class="filterbox" name="sex filter" style="display: none;">
                 <option selected disabled>Choose a sex:</option>
@@ -48,7 +40,7 @@
                 <option value="Other">Other</option>
             </select>
             <br></br>
-
+            <!-- Filter box for location selection -->
             <label id="locationtypefilterlabel" for="locationtypefilter" style="display: none;">Choose the type of location to filter the data: </label>
             <select id="locationtypefilter" class="filterbox" name="locationtype filter" style="display: none;">
                 <option selected disabled>Choose a location type:</option>
@@ -57,7 +49,7 @@
                 <option value="Pharmacy">Pharmacy</option>
             </select>
             <br></br>
-
+            <!-- Filter boxes for appointment selection -->
             <label id="appointmentlocationfilterlabel" for="appointmentlocationfilter" style="display: none;">Choose the appointment location to filter the data: </label>
             <select id="appointmentlocationfilter" class="filterbox" name="appointmentlocation filter" style="display: none;">
                 <option selected disabled>Choose a location:</option>
