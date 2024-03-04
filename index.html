@@ -78,7 +78,7 @@
 
     <script>
         function tableCheck() {
-            if (document.getElementById("patientselect").selected) {
+            if (document.getElementByClassName("patientselect").selected) {
                 document.getElementById("locationtypefilterlabel").style.display = "none";
                 document.getElementById("locationtypefilter").style.display = "none";
                 document.getElementById("appointmentlocationfilterlabel").style.display = "none";
@@ -88,7 +88,7 @@
                 document.getElementById("allergyfilter").style.display = "block";
                 document.getElementById("sexfilterlabel").style.display = "block";
                 document.getElementById("sexfilter").style.display = "block";
-            } else if (document.getElementById("locationselect").selected) {
+            } else if (document.getElementByClassName("locationselect").selected) {
                 document.getElementById("allergyfilterlabel").style.display = "none";
                 document.getElementById("allergyfilter").style.display = "none";
                 document.getElementById("sexfilterlabel").style.display = "none";
@@ -98,7 +98,7 @@
                 
                 document.getElementById("locationtypefilterlabel").style.display = "block";
                 document.getElementById("locationtypefilter").style.display = "block";
-            } else if (document.getElementById("appointmentselect").selected){
+            } else if (document.getElementByClassName("appointmentselect").selected){
                 document.getElementById("allergyfilterlabel").style.display = "none";
                 document.getElementById("allergyfilter").style.display = "none";
                 document.getElementById("sexfilterlabel").style.display = "none";
