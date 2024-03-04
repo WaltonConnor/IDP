@@ -78,8 +78,9 @@
 
     <script>
         function tableCheck(){
-            output = document.getElementById("tablefilterbox").checked;
-            console.log(output);
+            output = document.getElementById("tablefilterbox");
+            var selectedText = output.options[output.selectedIndex].text;
+            console.log(selectedText);
         }
     </script>
 
