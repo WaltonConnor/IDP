@@ -37,6 +37,24 @@
           "role": "anonymous"
         }
       ]
+    },
+    "Location": {
+      "source": "dbo.tbl_Locations",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
+    },
+    "Appointments": {
+      "source": "dbo.tbl_Appointments",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
     }
   }
 }

@@ -68,7 +68,7 @@
             </select>
             <br></br>
 
-            <input type="submit" value="Submit">
+            <input class="SubmitButton" type="submit" name="SUBMITBUTTON" value="Submit">
         </form>
     </div>
 
@@ -110,6 +110,13 @@
                 document.getElementById("appointmentlocationfilter").style.display = "block";
             }
         }
+    </script>
+    <script src = "//code.jquery.com/jquery-3.0.0.min.js"></script><!-- adds jquery library-->
+    <script type = "text/javascript">
+        $('.SubmitButton').click(function(){ // on submit button click
+            var urldata = $('#dropDownId :selected').val(); // get the selected option value
+            console.log(urldata);
+        });
     </script>
 
     <script>
