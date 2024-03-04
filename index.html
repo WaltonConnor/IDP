@@ -68,7 +68,7 @@
             </select>
             <br></br> -->
 
-            <input class="SubmitButton" type="button" onclick="filterData()" value="Submit">
+            <input class="SubmitButton" type="button" onclick="onChange()" value="Submit">
         </form>
     </div>
 
@@ -82,11 +82,14 @@
         }
     </script>
     <script>
-        function filterData(){
-            var e = document.getElementById("filterbox");
-            var value = e.value;
-            var text = e.options[e.selectedIndex].text;
+        var e = document.getElementById("filterbox");
+        function onChange() {
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        console.log(value, text);
         }
+        e.onchange = onChange;
+        onChange();
     </script>
 
     <script>
