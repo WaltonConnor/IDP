@@ -18,19 +18,19 @@
             <select id="tablefilterbox" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
                 <option id="patientselect" value="Patient">Patient</option>
-                <option id="locationselect" value="Location">Location</option>
+                <option id="locationselect" value="Locations">Locations</option>
                 <option id="appointmentselect" value="Appointments">Appointments</option>
             </select>
             <br></br>
             <!-- Filter boxes for patient selection -->
-            <!-- <label id="sexfilterlabel" for="sexfilter">Choose a sex to filter the data: </label>
-            <select id="filterbox" class="sexfilter" name="sex filter">
+            <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
+            <select id="sexfilterbox" name="sexfilter" style="display: none;" onchange="sexCheck()">
                 <option selected disabled>Choose a sex:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
             <br></br>
-            <label id="allergyfilterlabel" for="allergyfilter">Choose an allergy to filter the data: </label>
+            <!-- <label id="allergyfilterlabel" for="allergyfilter">Choose an allergy to filter the data: </label>
             <select id="filterbox" class="allergyfilter" name="allergyfilter">
                 <option selected disabled>Choose an allergy:</option>
                 <option value="Animals">Animals</option>
@@ -78,9 +78,24 @@
 
     <script>
         function tableCheck(){
-            output = document.getElementById("tablefilterbox");
-            var selectedText = output.options[output.selectedIndex].text;
+            tableoutput = document.getElementById("tablefilterbox");
+            var selectedText = tableoutput.options[tableoutput.selectedIndex].text;
             console.log(selectedText);
+            switch (tableoutput){
+                case Patient:
+                    document.getElementById("sexfilterlabel").style.display="block";
+                    document.getElementById("sexfilter").style.display="block";
+                    break;
+                case Locations:
+                    break;
+                case Appointments:
+                    break;
+            }
+        }
+        function sexCheck(){
+            tableoutput = document.getElementById("tablefilterbox");
+            var selectedSex = tableoutput.options[tableoutput.selectedIndex].text;
+            console.log(selectedSex);
         }
     </script>
 
