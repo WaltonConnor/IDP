@@ -15,7 +15,7 @@
         <form>
             <!-- Initial selection for filtering data -->
             <label for="tablefilter">Choose a table to retrieve data from:</label>
-            <select id="tablefilter" class="filterbox" name="tablefilter" onchange="tableCheck()">
+            <select id="filterbox" class="tablefilter" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
                 <option id="patientselect" value="Patient">Patient</option>
                 <option id="locationselect" value="Location">Location</option>
@@ -24,14 +24,14 @@
             <br></br>
             <!-- Filter boxes for patient selection -->
             <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
-            <select id="sexfilter" class="filterbox" name="sex filter" style="display: none;">
+            <select id="filterbox" class="sexfilter" name="sex filter" style="display: none;">
                 <option selected disabled>Choose a sex:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
             <br></br>
             <label id="allergyfilterlabel" for="allergyfilter" style="display: none;">Choose an allergy to filter the data: </label>
-            <select id="allergyfilter" class="filterbox" name="allergyfilter" style="display: none;">
+            <select id="filterbox" class="allergyfilter" name="allergyfilter" style="display: none;">
                 <option selected disabled>Choose an allergy:</option>
                 <option value="Animals">Animals</option>
                 <option value="Food">Food</option>
@@ -78,60 +78,14 @@
 
     <script>
         function tableCheck() {
-            if (document.getElementById("patientselect").selected) {
-                // document.getElementById("locationtypefilterlabel").style.display = "none";
-                // document.getElementById("locationtypefilter").style.display = "none";
-                // document.getElementById("locationtypefilter").disabled = true;
-                // document.getElementById("appointmentlocationfilterlabel").style.display = "none";
-                // document.getElementById("appointmentlocationfilter").style.display = "none";
-                // document.getElementById("appointmentlocationfilter").disabled = true;
-
-                document.getElementById("allergyfilterlabel").style.display = "block";
-                document.getElementById("allergyfilter").style.display = "block";
-                // document.getElementById("allergyfilter").disabled = false;
-                document.getElementById("sexfilterlabel").style.display = "block";
-                document.getElementById("sexfilter").style.display = "block";
-                // document.getElementById("sexfilter").disabled = false;
-            } 
-            // else if (document.getElementById("locationselect").selected) {
-            //     document.getElementById("allergyfilterlabel").style.display = "none";
-            //     document.getElementById("allergyfilter").style.display = "none";
-            //     // document.getElementById("allergyfilter").disabled = true;
-            //     document.getElementById("sexfilterlabel").style.display = "none";
-            //     document.getElementById("sexfilter").style.display = "none";
-            //     // document.getElementById("sexfilter").disabled = true;
-            //     document.getElementById("appointmentlocationfilterlabel").style.display = "none";
-            //     document.getElementById("appointmentlocationfilter").style.display = "none";
-            //     // document.getElementById("appointmentlocationfilter").disabled = true;
-                
-            //     document.getElementById("locationtypefilterlabel").style.display = "block";
-            //     document.getElementById("locationtypefilter").style.display = "block";
-            //     // document.getElementById("locationtypefilter").disabled = false;
-            // } else if (document.getElementById("appointmentselect").selected){
-            //     document.getElementById("allergyfilterlabel").style.display = "none";
-            //     document.getElementById("allergyfilter").style.display = "none";
-            //     // document.getElementById("allergyfilter").disabled = true;
-            //     document.getElementById("sexfilterlabel").style.display = "none";
-            //     document.getElementById("sexfilter").style.display = "none";
-            //     // document.getElementById("sexfilter").disabled = true;
-            //     document.getElementById("locationtypefilterlabel").style.display = "none";
-            //     document.getElementById("locationtypefilter").style.display = "none";
-            //     // document.getElementById("locationtypefilter").disabled = true;
-
-            //     document.getElementById("appointmentlocationfilterlabel").style.display = "block";
-            //     document.getElementById("appointmentlocationfilter").style.display = "block";
-            //     // document.getElementById("appointmentlocationfilter").disabled = false;
-            // }
+            
         }
     </script>
     <script>
         function filterData(){
-            for (let i = 0; i < document.getElementsByClassName('filterbox').length; i++){
-                var sel = document.getElementsByClassName('filterbox')[i - 1];
-                var option = sel.option[sel.selectedIndex].value;
-                console.log(option);
-                return option;
-            }
+            var e = document.getElementById("filterbox");
+            var value = e.value;
+            var text = e.options[e.selectedIndex].text;
         }
     </script>
 
