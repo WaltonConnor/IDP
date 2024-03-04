@@ -13,22 +13,25 @@
 
     <div class="fullbox" id="filtercontrols">
         <form action="/filter_page.php">
+
             <label for="tablefilter">Choose a table to retrieve data from:</label>
-            <select id="filterbox" name="tablefilter">
+            <select id="tablefilter" class="filterbox" name="tablefilter">
                 <option value="Patient">Patient</option>
                 <option value="Staff">Staff</option>
                 <option value="Appointments">Appointments</option>
             </select>
             <br></br>
+
             <label for="locationfilter">Choose a location to filter the data: </label>
-            <select id="filterbox" name="location filter">
+            <select id="locationfilter" class="filterbox" name="location filter" style="display: none;">
                 <option value="Hawthorn Health Center">Hawthorn Health Center</option>
                 <option value="Prairie Rose Family Practice">Prairie Rose Family Practice</option>
                 <option value="Sunnyvale Medical Clinic">Sunnyvale Medical Clinic</option>
             </select>
             <br></br>
+
             <label for="allergyfilter">Choose an allergy to filter the data: </label>
-            <select id="filterbox" name="allergyfilter">
+            <select id="allergyfilter" class="filterbox" name="allergyfilter" style="display: none;">
                 <option value="Animals">Animals</option>
                 <option value="Food">Food</option>
                 <option value="Hay Fever">Hay Fever</option>
@@ -36,6 +39,7 @@
                 <option value="Other">Other</option>
             </select>
             <br></br>
+
             <input type="submit" value="Submit">
         </form>
     </div>
