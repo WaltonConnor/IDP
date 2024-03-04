@@ -132,10 +132,10 @@
             for (var i=0, iLen=options.length; i<iLen; i++){
                 opt = options[i];
                 if(opt.selected){
-                    result.push(opt.value || opt.text);
+                    filteredData.push(opt.value || opt.text);
                 }
             }
-            return result;
+            return filteredData;
 
             // for (let i = 0; i < document.getElementsByClassName('filterbox').length; i++){
             //     var sel = document.getElementsByClassName('filterbox');
