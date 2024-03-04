@@ -126,7 +126,7 @@
     <script>
         function filterData(){
             var sel = document.getElementsByClassName('filterbox');
-            if (option == ''){
+            if (option == 'undefined'){
                 console.log("filter is empty");
             }else{
                 var option = sel.options[sel.selectedIndex].value;
