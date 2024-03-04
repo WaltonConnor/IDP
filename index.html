@@ -15,7 +15,7 @@
         <form action="/filter_page.php">
 
             <label for="tablefilter">Choose a table to retrieve data from:</label>
-            <select id="tablefilter" class="filterbox" name="tablefilter">
+            <select id="tablefilter" class="filterbox" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
                 <option id="patientselect" value="Patient">Patient</option>
                 <option id="staffselect" value="Staff">Staff</option>
@@ -28,6 +28,13 @@
                 <option value="Hawthorn Health Center">Hawthorn Health Center</option>
                 <option value="Prairie Rose Family Practice">Prairie Rose Family Practice</option>
                 <option value="Sunnyvale Medical Clinic">Sunnyvale Medical Clinic</option>
+            </select>
+            <br></br>
+
+            <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
+            <select id="sexfilter" class="filterbox" name="sex filter" style="display: none;">
+                <option value="Hawthorn Health Center">Male</option>
+                <option value="Prairie Rose Family Practice">Female</option>
             </select>
             <br></br>
 
@@ -49,6 +56,22 @@
         <button id="get" onclick="search()">Get</button>
     </div>
 
+    <script>
+        function tableCheck() {
+            if (document.getElementById("patientselect").selected) {
+                document.getElementById("allergyfilterlabel").style.display = "block";
+                document.getElementById("allergyfilter").style.display = "block";
+                document.getElementById("sexfilterlabel").style.display = "block";
+                document.getElementById("sexfilter").style.display = "block";
+            } else if (document.getElementById("staffselect").selected) {
+                document.getElementById("").style.display = "block";
+            } else if (document.getElementById("appointmentselect").selected){
+                document.getElementById("").style.display = "block";
+            } else {
+                document.getElementById("").style.display = "none";
+            }
+        }
+    </script>
 
     <script>
         async function search() {
