@@ -126,7 +126,7 @@
     <script>
         function filterData(){
             for (let i = 0; i < document.getElementsByClassName('filterbox').length; i++){
-                var sel = document.getElementsByClassName('filterbox')['0'];
+                var sel = document.getElementsByClassName('filterbox')[i-1];
                 var option = sel.options[sel.selectedIndex].value;
                 console.log(option);
             }
