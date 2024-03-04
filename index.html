@@ -12,7 +12,7 @@
     <div class="fullbox" id="InformationBox">Please use the boxes below to select the table you wold like to search, as well as any details you would like to filter by.</div>
 
     <div class="fullbox" id="filtercontrols">
-        
+        <form>
             <!-- Initial selection for filtering data -->
             <label for="tablefilter">Choose a table to retrieve data from:</label>
             <select id="filterbox" class="tablefilter" name="tablefilter" onchange="tableCheck()">
@@ -69,7 +69,7 @@
             <br></br>
 
             <input class="SubmitButton" type="button" onclick="filterData()" value="Submit">
-        
+        </form>
     </div>
 
     <div>
