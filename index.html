@@ -12,10 +12,10 @@
     <div class="fullbox" id="InformationBox">Please use the boxes below to select the table you wold like to search, as well as any details you would like to filter by.</div>
 
     <div class="fullbox" id="filtercontrols">
-        <form>
+        
             <!-- Initial selection for filtering data -->
             <label for="tablefilter">Choose a table to retrieve data from:</label>
-            <select id="tablefilter" class="filterbox" name="tablefilter" onchange="tableCheck()">
+            <select id="filterbox" class="tablefilter" name="tablefilter" onchange="tableCheck()">
                 <option selected disabled>Choose a selection:</option>
                 <option id="patientselect" value="Patient">Patient</option>
                 <option id="locationselect" value="Location">Location</option>
@@ -24,14 +24,14 @@
             <br></br>
             <!-- Filter boxes for patient selection -->
             <label id="sexfilterlabel" for="sexfilter" style="display: none;">Choose a sex to filter the data: </label>
-            <select id="sexfilter" class="filterbox" name="sex filter" style="display: none;">
+            <select id="filterbox" class="sexfilter" name="sex filter" style="display: none;">
                 <option selected disabled>Choose a sex:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
             <br></br>
             <label id="allergyfilterlabel" for="allergyfilter" style="display: none;">Choose an allergy to filter the data: </label>
-            <select id="allergyfilter" class="filterbox" name="allergyfilter" style="display: none;">
+            <select id="filterbox" class="allergyfilter" name="allergyfilter" style="display: none;">
                 <option selected disabled>Choose an allergy:</option>
                 <option value="Animals">Animals</option>
                 <option value="Food">Food</option>
@@ -42,7 +42,7 @@
             <br></br>
             <!-- Filter box for location selection -->
             <label id="locationtypefilterlabel" for="locationtypefilter" style="display: none;">Choose the type of location to filter the data: </label>
-            <select id="locationtypefilter" class="filterbox" name="locationtype filter" style="display: none;">
+            <select id="filterbox" class="locationtypefilter" name="locationtype filter" style="display: none;">
                 <option selected disabled>Choose a location type:</option>
                 <option value="Clinic">Clinic</option>
                 <option value="Hospital">Hospital</option>
@@ -51,7 +51,7 @@
             <br></br>
             <!-- Filter boxes for appointment selection -->
             <label id="appointmentlocationfilterlabel" for="appointmentlocationfilter" style="display: none;">Choose the appointment location to filter the data: </label>
-            <select id="appointmentlocationfilter" class="filterbox" name="appointmentlocation filter" style="display: none;">
+            <select id="filterbox" class="appointmentlocationfilter" name="appointmentlocation filter" style="display: none;">
                 <option selected disabled>Choose a location:</option>
                 <option value="1">1 - Hawthorn Health Center</option>
                 <option value="2">2 - Prairie Rose Family Practice</option>
@@ -68,8 +68,8 @@
             </select>
             <br></br>
 
-            <input class="SubmitButton" type="submit" name="SUBMITBUTTON" value="Submit">
-        </form>
+            <input class="SubmitButton" type="button" onclick="filterData()" value="Submit">
+        
     </div>
 
     <div>
@@ -111,12 +111,12 @@
             }
         }
     </script>
-    <script src = "//code.jquery.com/jquery-3.0.0.min.js"></script><!-- adds jquery library-->
-    <script type = "text/javascript">
-        $('.SubmitButton').click(function(){ // on submit button click
-            var urldata = $('#dropDownId :selected').val(); // get the selected option value
-            console.log(urldata);
-        });
+    <script>
+        function filterData(){
+            var sel = document.getElementById('filterbox');
+            var option = sel.options[sel.selectedIndex].value;
+            console.log(option);
+        }
     </script>
 
     <script>
