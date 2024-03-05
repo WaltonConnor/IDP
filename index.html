@@ -142,8 +142,8 @@
         async function searchPatient(){
             
         }
-        async function searchLocations(selectedLocationType){
-            const type = selectedLocationType;
+        async function searchLocations(){
+            const type = locationtypeCheck();
             const endpoint = `/data-api/rest/Location/Location_Type`;
             const response = await fetch(`${endpoint}/${type}`);
             const result = await response.json();
