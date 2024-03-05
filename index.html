@@ -130,7 +130,8 @@
         function locationtypeCheck(){
             tableoutput = document.getElementById("locationtypefilterbox");
             var selectedLocationType = tableoutput.options[tableoutput.selectedIndex].text;
-            console.log(selectedLocationType);
+            //console.log(selectedLocationType);
+            return selectedLocationType;
         }
         function appointmentlocationCheck(){
             tableoutput = document.getElementById("appointmentlocationfilterbox");
@@ -141,7 +142,7 @@
         async function searchPatient(){
             
         }
-        async function searchLocations(){
+        async function searchLocations(selectedLocationType){
             const type = selectedLocationType;
             const endpoint = `/data-api/rest/Location/Location_Type`;
             const response = await fetch(`${endpoint}/${type}`);
