@@ -138,7 +138,8 @@
         function appointmentlocationCheck(){
             tableoutput = document.getElementById("appointmentlocationfilterbox");
             var selectedAppointmentLocation = tableoutput.options[tableoutput.selectedIndex].text;
-            console.log(selectedAppointmentLocation);
+            //console.log(selectedAppointmentLocation);
+            return selectedAppointmentLocation;
         }
 
         async function searchPatients(){
