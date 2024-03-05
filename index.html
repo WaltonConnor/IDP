@@ -145,7 +145,7 @@
         async function searchLocations(){
             const type = locationtypeCheck();
             console.log(type);
-            const categoryEndpointFilter =  "'Hostital'";
+            const categoryEndpointFilter =  "'Hospital'";
             const endpoint = `/data-api/rest/Location?q=Location_Type eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
