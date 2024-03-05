@@ -158,9 +158,9 @@
 
     <script>
         async function search() {
-        const id = 1;
-        const endpoint = `/data-api/rest/Location/Location_ID`;
-        const response = await fetch(`${endpoint}/${id}`);
+        const type = "Hospital";
+        const endpoint = `/data-api/rest/Location/Location_Type`;
+        const response = await fetch(`${endpoint}/${type}`);
         const result = await response.json();
         console.table(result.value);
         }
