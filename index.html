@@ -165,7 +165,7 @@
         // console.table(result.value);
         // }
         async function search() {
-            const endpoint = '/data-api/rest/Location?filter=Location_Type eq Hospital';
+            const endpoint = '/data-api/rest/Location?$filter=Location_Type eq Hospital';
             const response = await fetch(endpoint);
             const data = await response.json();
             console.table(data.value);
