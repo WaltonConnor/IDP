@@ -165,11 +165,11 @@
                 atype = 3;
             }
             console.log(atype);
-            const categoryEndpointFilter =  "'" + atype + "'";
-            const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
-            const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
-            const result = await response.json();
-            console.table(result.value);
+            // const categoryEndpointFilter =  "'" + atype + "'";
+            // const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
+            // const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
+            // const result = await response.json();
+            // console.table(result.value);
         }
     </script>
 
