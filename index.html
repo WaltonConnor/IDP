@@ -157,18 +157,12 @@
     </script>
 
     <script>
-        // async function search() {
-        // const id = 1;
-        // const endpoint = `/data-api/rest/Location/Location_ID`;
-        // const response = await fetch(`${endpoint}/${id}`);
-        // const result = await response.json();
-        // console.table(result.value);
-        // }
         async function search() {
-            const endpoint = '/data-api/rest/Location?$filter=Location_Type eq Clinic';
-            const response = await fetch(endpoint);
-            const data = await response.json();
-            console.table(data.value);
+        const id = 1;
+        const endpoint = `/data-api/rest/Location/Location_ID`;
+        const response = await fetch(`${endpoint}/${id}`);
+        const result = await response.json();
+        console.table(result.value);
         }
     </script> 
 </body>
