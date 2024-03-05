@@ -146,7 +146,7 @@
             const type = locationtypeCheck();
             //console.log(type);
             const endpoint = `/data-api/rest/Location?$filter=Location_Type eq ‘Hospital’`;
-            const response = await fetch(`${endpoint}/${type}`);
+            const response = await fetch(`${endpoint}`);
             const result = await response.json();
             console.table(result.value);
         }
