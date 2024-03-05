@@ -56,22 +56,15 @@
                 <option value="1">Hawthorn Health Center</option>
                 <option value="2">Prairie Rose Family Practice</option>
                 <option value="3">Sunnyvale Medical Clinic</option>
-                <option value="4">Mapleleaf Family Practice</option>
-                <option value="5">Lakeview Regional Hospital</option>
-                <option value="6">Harborview Regional Hospital</option>
-                <option value="7">Cypress Grove Clinic</option>
-                <option value="8">Seaview Memorial Hospital</option>
-                <option value="9">Seaview Memorial Hospital</option>
-                <option value="10">Riverbend Regional Hospital</option>
-                <option value="11">Mountainview Medical Clinic</option>
-                <option value="12">Aspen Grove Medical Center</option>
             </select>
             <br></br>
         </form>
     </div>
 
     <div>
-        <button id="get" onclick="searchLocations()">Get</button>
+        <button id="getPatients" onclick="searchPatients()">Get</button>
+        <button id="getLocation" onclick="searchLocations()">Get</button>
+        <button id="getAppointments" onclick="searchAppointments()">Get</button>
     </div>
 
     <script>
@@ -85,11 +78,14 @@
                     document.getElementById("locationtypefilterbox").style.display="none";
                     document.getElementById("appointmentlocationfilterlabel").style.display="none";
                     document.getElementById("appointmentlocationfilterbox").style.display="none";
+                    document.getElementById("getLocation").style.display="none";
+                    document.getElementById("getAppointments").style.display="none";
 
                     document.getElementById("sexfilterlabel").style.display="block";
                     document.getElementById("sexfilterbox").style.display="block";
                     document.getElementById("allergyfilterlabel").style.display="block";
                     document.getElementById("allergyfilterbox").style.display="block";
+                    document.getElementById("getPatients").style.display="block";
                     break;
                 case "Locations":
                     document.getElementById("sexfilterlabel").style.display="none";
@@ -98,9 +94,12 @@
                     document.getElementById("allergyfilterbox").style.display="none";
                     document.getElementById("appointmentlocationfilterlabel").style.display="none";
                     document.getElementById("appointmentlocationfilterbox").style.display="none";
+                    document.getElementById("getAppointments").style.display="none";
+                    document.getElementById("getPatients").style.display="none";
 
                     document.getElementById("locationtypefilterlabel").style.display="block";
                     document.getElementById("locationtypefilterbox").style.display="block";
+                    document.getElementById("getLocation").style.display="block";
                     break;
                 case "Appointments":
                     document.getElementById("sexfilterlabel").style.display="none";
@@ -109,9 +108,12 @@
                     document.getElementById("allergyfilterbox").style.display="none";
                     document.getElementById("locationtypefilterlabel").style.display="none";
                     document.getElementById("locationtypefilterbox").style.display="none";
+                    document.getElementById("getLocation").style.display="none";
+                    document.getElementById("getPatients").style.display="none";
 
                     document.getElementById("appointmentlocationfilterlabel").style.display="block";
                     document.getElementById("appointmentlocationfilterbox").style.display="block";
+                    document.getElementById("getAppointments").style.display="block";
                     break;
                 default:
                     console.log("w-w-w whats goin on? *queue crazy frog*")
@@ -139,7 +141,7 @@
             console.log(selectedAppointmentLocation);
         }
 
-        async function searchPatient(){
+        async function searchPatients(){
             
         }
         async function searchLocations(){
@@ -152,7 +154,21 @@
             console.table(result.value);
         }
         async function searchAppointments(){
-            
+            const pretype = appointmentlocationCheck();
+            const type = 0;
+            if (pretype == "Hawthorn Health Center"){
+                type = 1;
+            } else if (pretype == "Prairie Rose Family Practice"){
+                type = 2;
+            } else {
+                type = 3;
+            }
+            console.log(type);
+            const categoryEndpointFilter =  "'" + type + "'";
+            const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
+            const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
+            const result = await response.json();
+            console.table(result.value);
         }
     </script>
 
@@ -162,7 +178,9 @@
         const endpoint = `/data-api/rest/Location/Location_Type`;
         const response = await fetch(`${endpoint}/${type}`);
         const result = await response.json();
-        console.table(result.value);
+        //console.table(result.value);
+        valueLength = result.value.length;
+        valueLength += 1;
         }
     </script> 
 </body>
