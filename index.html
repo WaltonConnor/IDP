@@ -145,9 +145,9 @@
         async function searchLocations(){
             const type = locationtypeCheck();
             console.log(type);
-            const categoryEndpointFilter =  "'Hospital'";
+            const categoryEndpointFilter =  "'" + type + "'";
             const endpoint = `/data-api/rest/Location?q=Location_Type eq `;
-            const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
+            const response = await fetch(`${endpoint}${'Hospital'}`);
             const result = await response.json();
             console.table(result.value);
         }
