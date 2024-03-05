@@ -157,8 +157,8 @@
 
     <script>
         async function search() {
-        const id = 1;
-        const endpoint = `/data-api/rest/Location/Location_ID`;
+        const id = 'Hospital';
+        const endpoint = `/data-api/rest/Location/Location_Type`;
         const response = await fetch(`${endpoint}/${id}`);
         const result = await response.json();
         console.table(result.value);
