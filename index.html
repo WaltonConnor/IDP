@@ -71,7 +71,7 @@
     </div>
 
     <div>
-        <button id="get" onclick="search()">Get</button>
+        <button id="get" onclick="searchLocations()">Get</button>
     </div>
 
     <script>
@@ -145,8 +145,9 @@
         async function searchLocations(){
             const type = locationtypeCheck();
             console.log(type);
-            const endpoint = `/data-api/rest/Location/Location_Type`;
-            const response = await fetch(`${endpoint}/${type}`);
+            const categoryEndpointFilter =  "'" + type + "'";
+            const endpoint = `/data-api/rest/Location?q=Location_Type eq `;
+            const response = await fetch(`${endpoint}/${categoryEndpointFilter}`);
             const result = await response.json();
             console.table(result.value);
         }
@@ -157,8 +158,8 @@
 
     <script>
         async function search() {
-        const id = 'Hospital';
-        const endpoint = `/data-api/rest/Location/Location_Type`;
+        const id = 1;
+        const endpoint = `/data-api/rest/Location/Location_ID`;
         const response = await fetch(`${endpoint}/${id}`);
         const result = await response.json();
         console.table(result.value);
