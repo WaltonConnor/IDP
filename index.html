@@ -130,8 +130,8 @@
         function locationtypeCheck(){
             tableoutput = document.getElementById("locationtypefilterbox");
             var selectedLocationType = tableoutput.options[tableoutput.selectedIndex].text;
-            console.log(selectedLocationType);
-            //return selectedLocationType;
+            //console.log(selectedLocationType);
+            return selectedLocationType;
         }
         function appointmentlocationCheck(){
             tableoutput = document.getElementById("appointmentlocationfilterbox");
@@ -144,10 +144,11 @@
         }
         async function searchLocations(){
             const type = locationtypeCheck();
-            const endpoint = `/data-api/rest/Location/Location_Type`;
-            const response = await fetch(`${endpoint}/${type}`);
-            const result = await response.json();
-            console.table(result.value);
+            console.log(type);
+            // const endpoint = `/data-api/rest/Location/Location_Type`;
+            // const response = await fetch(`${endpoint}/${type}`);
+            // const result = await response.json();
+            // console.table(result.value);
         }
         async function searchAppointments(){
             
