@@ -166,11 +166,11 @@
                 atype = 3;
             }
             console.log(atype);
-            const categoryEndpointFilter =  "'" + atype + "'";
+            const acategoryEndpointFilter =  "'" + atype + "'";
             const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
-            const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
-            const result = await response.json();
-            console.table(result.value);
+            const aresponse = await fetch(`${endpoint}${acategoryEndpointFilter}`);
+            const aresult = await aresponse.json();
+            console.table(aresult.value);
         }
     </script>
 
