@@ -168,11 +168,9 @@
             console.log(type);
             const categoryEndpointFilter =  "'" + type + "'";
             const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
-            console.log(categoryEndpointFilter);
-            console.log(endpoint);
-            // const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
-            // const result = await response.json();
-            // console.table(result.value);
+            const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
+            const result = await response.json();
+            console.table(result.value);
         }
     </script>
 
