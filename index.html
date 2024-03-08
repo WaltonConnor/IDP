@@ -150,7 +150,7 @@
             console.log(type);
             console.log(type2);
             const categoryEndpointFilter =  "'" + type + "'";
-            const categoryEndpointFilter2 =  "'and Patient_Allergy eq" + type2 + "'";
+            const categoryEndpointFilter2 =  "'and Patient_Allergy eq " + type2 + "'";
             const endpoint = `/data-api/rest/Patient?$filter=Patient_Sex eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}${categoryEndpointFilter2}`);
             const result = await response.json();
