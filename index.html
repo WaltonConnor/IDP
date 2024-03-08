@@ -122,12 +122,14 @@
         function sexCheck(){
             tableoutput = document.getElementById("sexfilterbox");
             var selectedSex = tableoutput.options[tableoutput.selectedIndex].text;
-            console.log(selectedSex);
+            //console.log(selectedSex);
+            return selectedSex;
         }
         function allergyCheck(){
             tableoutput = document.getElementById("allergyfilterbox");
             var selectedAllergy = tableoutput.options[tableoutput.selectedIndex].text;
-            console.log(selectedAllergy);
+            //console.log(selectedAllergy);
+            return selectedAllergy;
         }
         function locationtypeCheck(){
             tableoutput = document.getElementById("locationtypefilterbox");
@@ -143,7 +145,16 @@
         }
 
         async function searchPatients(){
-            
+            const type = sexCheck();
+            const type2 = allergyCheck();
+            console.log(type);
+            console.log(type2);
+            const categoryEndpointFilter =  "'" + type + "'";
+            const categoryEndpointFilter2 =  "'and Patient_Allergy eq" + type2 + "'";
+            const endpoint = `/data-api/rest/Patient?$filter=Patient_Sex eq `;
+            const response = await fetch(`${endpoint}${categoryEndpointFilter}${categoryEndpointFilter2}`);
+            const result = await response.json();
+            console.table(result.value);
         }
         async function searchLocations(){
             const type = locationtypeCheck();
@@ -166,11 +177,10 @@
                 type = 3;
             }
             console.log(type);
-            const categoryEndpointFilter =   type ;
+            const categoryEndpointFilter = type;
             const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
-            
             console.table(result.value);
         }
     </script>
