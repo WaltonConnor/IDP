@@ -157,15 +157,16 @@
         async function searchAppointments(){
             const pretype = appointmentlocationCheck();
             console.log(pretype);
-            let type = 0;
+            let atype = 0;
             if (pretype == "Hawthorn Health Center"){
-                type = 1;
+                atype = 1;
             } else if (pretype == "Prairie Rose Family Practice"){
-                type = 2;
+                aatype = 2;
             } else {
-                type = 3;
+                atype = 3;
             }
-            console.log(type);
+            console.log(atype);
+            const type = atype;
             const categoryEndpointFilter =  "'" + type + "'";
             const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
