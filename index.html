@@ -61,14 +61,27 @@
 
     <div>
         <button id="getPatients" onclick="searchPatients()">Get</button>
-        <button id="getLocation" onclick="searchLocations()">Get</button>
+        <button id="getLocation" onclick="InsertLocationData()">Get</button>
         <button id="getAppointments" onclick="searchAppointments()">Get</button>
     </div>
 
     <div class="locationResponseContainer">
-        <table class="table" id="ResponseTable">
-            <thead></thead>
-            <tbody></tbody>
+        <table class="locationResponseTable" id="ResponseTable">
+            <thead>
+                <tr>
+                    <th>Location_ID</th>
+                    <th>Location_Name</th>
+                    <th>Location_Type</th>
+                    <th>Location_Address</th>
+                    <th>Location_City</th>
+                    <th>Location_Country</th>
+                    <th>Location_Postcode</th>
+                    <th>Location_Email</th>
+                    <th>Location_PhoneNumber</th>
+                </tr>
+            </thead>
+            <tbody id="Ldata">
+            </tbody>
         </table>
     </div>
 
@@ -169,7 +182,7 @@
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
             //console.table(result.value);
-            loadIntoTable(result, document.querySelector("table"));
+            return result;
         }
         async function searchAppointments(){
             const pretype = appointmentlocationCheck();
@@ -190,12 +203,17 @@
             console.table(result.value);
         }
     
-        async function loadIntoTable(result, table){
-            const tableHead = table.querySelector("thead");
-            const tableBody = table.querySelector("tbody");
-            const response = await fetch(result);
-            const data = response.json();
-            console.log(data);
+        function InsertLocationData(){
+            var table = document.getElementById("Ldata");
+            table.innerHTML ="";
+            var tr="";
+            result = searchLocations()
+            result.forEach(x=>{
+                tr+='<tr>';
+                tr+='<td'+x.Location_ID+'</td>'+'<td'+x.Location_Name+'</td>'+'<td'+x.Location_Type+'</td>'+'<td'+x.Location_Address+'</td>'+'<td'+x.Location_City+'</td>'+'<td'+x.Location_Country+'</td>'+'<td'+x.Location_Postcode+'</td>'+'<td'+x.Location_Email+'</td>'+'<td'+x.Location_PhoneNumber+'</td>'
+                tr+='</tr>'
+            })
+            table.innerHTML+=tr;
         }
     </script>
 
