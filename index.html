@@ -61,7 +61,7 @@
 
     <div>
         <button id="getPatients" onclick="searchPatients()">Get</button>
-        <button id="getLocation" onclick="InsertLocationData()">Get</button>
+        <button id="getLocation" onclick="searchLocations()">Get</button>
         <button id="getAppointments" onclick="searchAppointments()">Get</button>
     </div>
 
@@ -181,8 +181,7 @@
             const endpoint = `/data-api/rest/Location?$filter=Location_Type eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
-            //console.table(result.value);
-            return result;
+            console.table(result.value);
         }
         async function searchAppointments(){
             const pretype = appointmentlocationCheck();
@@ -201,21 +200,6 @@
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
             console.table(result.value);
-        }
-    
-        function InsertLocationData(){
-            var table = document.getElementById("Ldata");
-            table.innerHTML ="";
-            var tr="";
-            result = searchLocations()
-            console.log(result);
-            // const arr = Array.from(result);
-            // arr.forEach(x=>{
-            //     tr+='<tr>';
-            //     tr+='<td'+x.Location_ID+'</td>'+'<td'+x.Location_Name+'</td>'+'<td'+x.Location_Type+'</td>'+'<td'+x.Location_Address+'</td>'+'<td'+x.Location_City+'</td>'+'<td'+x.Location_Country+'</td>'+'<td'+x.Location_Postcode+'</td>'+'<td'+x.Location_Email+'</td>'+'<td'+x.Location_PhoneNumber+'</td>'
-            //     tr+='</tr>'
-            // })
-            // table.innerHTML+=tr;
         }
     </script>
 
