@@ -65,26 +65,6 @@
         <button id="getAppointments" onclick="searchAppointments()">Get</button>
     </div>
 
-    <div class="locationResponseContainer">
-        <table class="ResponseTable" id="locationResponseTable">
-            <thead>
-                <tr>
-                    <th>Location_ID</th>
-                    <th>Location_Name</th>
-                    <th>Location_Type</th>
-                    <th>Location_Address</th>
-                    <th>Location_City</th>
-                    <th>Location_Country</th>
-                    <th>Location_Postcode</th>
-                    <th>Location_Email</th>
-                    <th>Location_PhoneNumber</th>
-                </tr>
-            </thead>
-            <tbody id="Ldata">
-            </tbody>
-        </table>
-    </div>
-
     <script>
         function tableCheck(){
             tableoutput = document.getElementById("tablefilterbox");
@@ -183,27 +163,10 @@
             const result = await response.json();
             //console.table(result.value);
 
-            for (let i = 0; i < result.length; i++){
-                var table = document.getElementById("locationResponseTable");
-                var row = table.insertRow(0);
-                var locationID = row.insertCell(0);
-                var locationName = row.insertCell(1);
-                var locationType = row.insertCell(2);
-                var locationAddress = row.insertCell(3);
-                var locationCity = row.insertCell(4);
-                var locationCountry = row.insertCell(5);
-                var locationPostcode = row.insertCell(6);
-                var locationEmail = row.insertCell(7);
-                var locationPhoneNumber = row.insertCell(8);
-                locationID.innerHTML = result.i.Location_ID;
-                locationName.innerHTML = result.i.Location_Name;
-                locationType.innerHTML = result.i.Location_Type;
-                locationAddress.innerHTML = result.i.Location_Address;
-                locationCity.innerHTML = result.i.Location_City;
-                locationCountry.innerHTML = result.i.Location_Country;
-                locationPostcode.innerHTML = result.i.Location_Postcode;
-                locationEmail.innerHTML = result.i.Location_Email;
-                locationPhoneNumber.innerHTML = result.i.Location_PhoneNumber;
+            valueLength = result.value.length;
+            for (let i = 0; i < valueLength; i++){
+                item = result.value[i];
+                console.log(item);
             }
         }
         async function searchAppointments(){
