@@ -174,8 +174,6 @@
                 div.classList.add("item-container" + (i));
                 div.id = 'icontainer';
             }
-
-
             valueLength2 = result.value.length;
             for (let i2 = 0; i2 < valueLength2; i2++){
                 item = result.value[i2];
@@ -186,6 +184,47 @@
                 itemContainer.append(line1);
                 line1.innerText = id;
                 line1.id = 'lID';
+                name = item.Location_Name;
+                const line2 = document.createElement('l');
+                itemContainer.append(line2);
+                line2.innerText = name;
+                line2.id = 'lName';
+                type = item.Location_Type;
+                const line3 = document.createElement('l');
+                itemContainer.append(line3);
+                line3.innerText = type;
+                line3.id = 'lType';
+                address = item.Location_Address;
+                const line4 = document.createElement('l');
+                itemContainer.append(line4);
+                line4.innerText = address;
+                line4.id = 'lAddress';
+                city = item.Location_City;
+                const line5 = document.createElement('l');
+                itemContainer.append(line5);
+                line5.innerText = city;
+                line5.id = 'lCity';
+                country = item.Location_Country;
+                const line6 = document.createElement('l');
+                itemContainer.append(line6);
+                line6.innerText = country;
+                line6.id = 'lCountry';
+                postcode = item.Location_Postcode;
+                const line7 = document.createElement('l');
+                itemContainer.append(line7);
+                line7.innerText = postcode;
+                line7.id = 'lPostcode';
+                email = item.Location_Email;
+                const line8 = document.createElement('l');
+                itemContainer.append(line8);
+                line8.innerText = email;
+                line8.id = 'lEmail';
+                phone = item.Location_PhoneNumber;
+                const line9 = document.createElement('l');
+                itemContainer.append(line9);
+                line9.innerText = phone;
+                line9.id = 'lPhoneNumber';
+                i2 -=1;
             }
         }
         async function searchAppointments(){
