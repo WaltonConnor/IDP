@@ -36,8 +36,6 @@
                 <option value="Animals">Animals</option>
                 <option value="Food">Food</option>
                 <option value="Hay Fever">Hay Fever</option>
-                <option value="Dust">Dust</option>
-                <option value="Other">Other</option>
             </select>
             <br></br>
             <!-- Filter box for location selection -->
@@ -68,22 +66,9 @@
     </div>
 
     <div class="locationResponseContainer">
-        <table class="locationResponseTable">
-            <thead>
-                <tr>
-                    <th>Location_ID</th>
-                    <th>Location_Name</th>
-                    <th>Location_Type</th>
-                    <th>Location_Address</th>
-                    <th>Location_City</th>
-                    <th>Location_Country</th>
-                    <th>Location_Postcode</th>
-                    <th>Location_Email</th>
-                    <th>Location_PhoneNumber</th>
-                </tr>
-            </thead>
-            <tbody id="data">
-            </tbody>
+        <table class="table" id="ResponseTable">
+            <thead></thead>
+            <tbody></tbody>
         </table>
     </div>
 
@@ -183,25 +168,8 @@
             const endpoint = `/data-api/rest/Location?$filter=Location_Type eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
-            console.table(result.value);
-            valueLength = result.value.length;
-            valueLength += 1;
-            if(result.length > 0){
-                var temp ="";
-                result.Array.forEach((itemData) => {
-                    temp += "<tr>";
-                    temp =+ "<td>" + itemData.Location_ID + "</td>";
-                    temp =+ "<td>" + itemData.Location_Name + "</td>";
-                    temp =+ "<td>" + itemData.Location_Type + "</td>";
-                    temp =+ "<td>" + itemData.Location_Address + "</td>";
-                    temp =+ "<td>" + itemData.Location_City + "</td>";
-                    temp =+ "<td>" + itemData.Location_Country + "</td>";
-                    temp =+ "<td>" + itemData.Location_Postcode + "</td>";
-                    temp =+ "<td>" + itemData.Location_Email + "</td>";
-                    temp =+ "<td>" + itemData.Location_PhoneNumber + "</td></tr>";
-                });
-                document.getElementById('data').innerHTML = temp;
-            }
+            //console.table(result.value);
+            loadIntoTable(result, document.querySelector("table"));
         }
         async function searchAppointments(){
             const pretype = appointmentlocationCheck();
@@ -220,6 +188,14 @@
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
             console.table(result.value);
+        }
+    
+        async function loadIntoTable(result, table){
+            const tableHead = table.querySelector("thead");
+            const tableBody = table.querySelector("tbody");
+            const response = await fetch(result);
+            const data = response.json();
+            console.log(data);
         }
     </script>
 
