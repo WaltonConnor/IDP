@@ -65,6 +65,8 @@
         <button id="getAppointments" onclick="searchAppointments()">Get</button>
     </div>
 
+    <div class="grid-container"></div>
+
     <script>
         function tableCheck(){
             tableoutput = document.getElementById("tablefilterbox");
@@ -162,12 +164,23 @@
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
             //console.table(result.value);
-
             valueLength = result.value.length;
-            for (let i = 0; i < valueLength; i++){
-                item = result.value[i];
+            valueLength += 1;
+            for (let i = 1; i < valueLength; i++){
+                const gridContainer = document.querySelector('.grid-container');
+                const div = document.createElement('div');
+                gridContainer.append(div);
+        
+                div.classList.add("item-container" + (i));
+                div.id = 'icontainer';
+            }
+
+
+            valueLength2 = result.value.length;
+            for (let i2 = 0; i2 < valueLength2; i2++){
+                item = result.value[i2];
                 console.log(item);
-                var itemContainer = document.querySelector('item-container' + (i += 1));
+                var itemContainer = document.querySelector('.item-container' + (i2 += 1));
                 id = item.Location_ID;
                 const line1 = document.createElement('l');
                 itemContainer.append(line1);
