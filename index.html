@@ -243,7 +243,69 @@
             const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
-            console.table(result.value);
+            //console.table(result.value);=
+            valueLength = result.value.length;
+            valueLength += 1;
+            for (let i = 1; i < valueLength; i++){
+                const gridContainer = document.querySelector('.grid-container');
+                const div = document.createElement('div');
+                gridContainer.append(div);
+        
+                div.classList.add("item-container" + (i));
+                div.id = 'icontainer';
+            }
+            valueLength2 = result.value.length;
+            for (let i2 = 0; i2 < valueLength2; i2++){
+                item = result.value[i2];
+                console.log(item);
+                // var itemContainer = document.querySelector('.item-container' + (i2 += 1));
+                // id = item.Location_ID;
+                // const line1 = document.createElement('l');
+                // itemContainer.append(line1);
+                // line1.innerText = "ID = " + id;
+                // line1.id = 'lID';
+                // name = item.Location_Name;
+                // const line2 = document.createElement('l');
+                // itemContainer.append(line2);
+                // line2.innerText = "Name = " + name;
+                // line2.id = 'lName';
+                // locationtype = item.Location_Type;
+                // const line3 = document.createElement('l');
+                // itemContainer.append(line3);
+                // line3.innerText = "Type = " + locationtype;
+                // line3.id = 'lType';
+                // address = item.Location_Address;
+                // const line4 = document.createElement('l');
+                // itemContainer.append(line4);
+                // line4.innerText = "Address = " + address;
+                // line4.id = 'lAddress';
+                // city = item.Location_City;
+                // const line5 = document.createElement('l');
+                // itemContainer.append(line5);
+                // line5.innerText = "City = " + city;
+                // line5.id = 'lCity';
+                // country = item.Location_Country;
+                // const line6 = document.createElement('l');
+                // itemContainer.append(line6);
+                // line6.innerText = "Country = " +country;
+                // line6.id = 'lCountry';
+                // postcode = item.Location_Postcode;
+                // const line7 = document.createElement('l');
+                // itemContainer.append(line7);
+                // line7.innerText = "Postcode = " + postcode;
+                // line7.id = 'lPostcode';
+                // email = item.Location_Email;
+                // const line8 = document.createElement('l');
+                // itemContainer.append(line8);
+                // line8.innerText = "Email = " + email;
+                // line8.id = 'lEmail';
+                // phone = item.Location_PhoneNumber;
+                // const line9 = document.createElement('l');
+                // itemContainer.append(line9);
+                // line9.innerText = "Phone = " + phone;
+                // line9.id = 'lPhoneNumber';
+                i2 -=1;
+            }
         }
     </script>
 
