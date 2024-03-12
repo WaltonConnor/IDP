@@ -208,13 +208,14 @@
             table.innerHTML ="";
             var tr="";
             result = searchLocations()
-            const arr = Array.from(result);
-            arr.forEach(x=>{
-                tr+='<tr>';
-                tr+='<td'+x.Location_ID+'</td>'+'<td'+x.Location_Name+'</td>'+'<td'+x.Location_Type+'</td>'+'<td'+x.Location_Address+'</td>'+'<td'+x.Location_City+'</td>'+'<td'+x.Location_Country+'</td>'+'<td'+x.Location_Postcode+'</td>'+'<td'+x.Location_Email+'</td>'+'<td'+x.Location_PhoneNumber+'</td>'
-                tr+='</tr>'
-            })
-            table.innerHTML+=tr;
+            console.log(result);
+            // const arr = Array.from(result);
+            // arr.forEach(x=>{
+            //     tr+='<tr>';
+            //     tr+='<td'+x.Location_ID+'</td>'+'<td'+x.Location_Name+'</td>'+'<td'+x.Location_Type+'</td>'+'<td'+x.Location_Address+'</td>'+'<td'+x.Location_City+'</td>'+'<td'+x.Location_Country+'</td>'+'<td'+x.Location_Postcode+'</td>'+'<td'+x.Location_Email+'</td>'+'<td'+x.Location_PhoneNumber+'</td>'
+            //     tr+='</tr>'
+            // })
+            // table.innerHTML+=tr;
         }
     </script>
 
