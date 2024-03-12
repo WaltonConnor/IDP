@@ -186,9 +186,9 @@
             console.table(result.value);
             valueLength = result.value.length;
             valueLength += 1;
-            if(valueLength > 0){
+            if(result.length > 0){
                 var temp ="";
-                result.array.forEach((itemData) => {
+                result.forEach((itemData) => {
                     temp += "<tr>";
                     temp =+ "<td>" + itemData.Location_ID + "</td>";
                     temp =+ "<td>" + itemData.Location_Name + "</td>";
