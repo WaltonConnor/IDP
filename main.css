@@ -18,23 +18,13 @@
     text-align: center;
 }
 
-.ResponseTable{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-collapse: collapse;
-    overflow: hidden;
-    font-weight: bold;
+.grid-container{
+    width: 100%;
+    float: left;
+    text-align: center;
 }
-.ResponseTable thead th{
-    background: #009578;
-    color: #ffffff;
-}
-.ResponseTable td,
-.ResponseTable th{
-    padding: 10px 20px;
-}
-.ResponseTable tbody tr:nth-of-type(even){
-    background: #eeeeee;
-}
-.ResponseTable tbody tr:last-of-type{
-    border-bottom: 2px solid #009578;
+.grid-container #icontainer{
+    display: inline-grid;
+    width: 25%;
+    margin: 3vh;
 }
