@@ -167,6 +167,12 @@
             for (let i = 0; i < valueLength; i++){
                 item = result.value[i];
                 console.log(item);
+                var itemContainer = document.querySelector('item-container' + (i += 1));
+                id = item.Location_ID;
+                const line1 = document.createElement('l');
+                itemContainer.append(line1);
+                line1.innerText = id;
+                line1.id = 'lID';
             }
         }
         async function searchAppointments(){
