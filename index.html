@@ -65,7 +65,7 @@
         <button id="getAppointments" onclick="searchAppointments()" style="display: none;">Get</button>
     </div>
 
-    <div class="grid-container" id="grid-container"></div>
+    <div class="grid-container" id=".grid-container"></div>
 
     <script>
         function tableCheck(){
@@ -327,7 +327,7 @@
             }
         }
         async function searchAppointments(){
-            document.getElementById(".grid-container").innerHTML=""
+            document.getElementById(".grid-container").innerHTML="";
             const pretype = appointmentlocationCheck();
             console.log(pretype);
             let type = 0;
