@@ -60,12 +60,12 @@
     </div>
 
     <div>
-        <button id="getPatients" onclick="searchPatients()">Get</button>
-        <button id="getLocation" onclick="searchLocations()">Get</button>
-        <button id="getAppointments" onclick="searchAppointments()">Get</button>
+        <button id="getPatients" onclick="searchPatients()" style="display: none;">Get</button>
+        <button id="getLocation" onclick="searchLocations()" style="display: none;">Get</button>
+        <button id="getAppointments" onclick="searchAppointments()" style="display: none;">Get</button>
     </div>
 
-    <div class="grid-container"></div>
+    <div class="grid-container" id="grid-container"></div>
 
     <script>
         function tableCheck(){
@@ -145,6 +145,7 @@
         }
 
         async function searchPatients(){
+            document.getElementById(".grid-container").innerHTML=""
             const type = sexCheck();
             const type2 = allergyCheck();
             console.log(type);
@@ -254,6 +255,7 @@
             }
         }
         async function searchLocations(){
+            document.getElementById(".grid-container").innerHTML=""
             const type = locationtypeCheck();
             console.log(type);
             const categoryEndpointFilter =  "'" + type + "'";
@@ -325,6 +327,7 @@
             }
         }
         async function searchAppointments(){
+            document.getElementById(".grid-container").innerHTML=""
             const pretype = appointmentlocationCheck();
             console.log(pretype);
             let type = 0;
@@ -395,17 +398,5 @@
             }
         }
     </script>
-
-    <script>
-        async function search() {
-        const type = "Hospital";
-        const endpoint = `/data-api/rest/Location/Location_Type`;
-        const response = await fetch(`${endpoint}/${type}`);
-        const result = await response.json();
-        //console.table(result.value);
-        valueLength = result.value.length;
-        valueLength += 1;
-        }
-    </script> 
 </body>
 </html>
