@@ -268,6 +268,8 @@
             }
         }
         async function searchAppointments(){
+            var startTime = performance.now();
+            document.getElementById("databaseResponseTime").innerHTML = "Database Response Time: ";
             document.getElementById(".grid-container").innerHTML="";
             const pretype = appointmentlocationCheck();
             console.log(pretype);
@@ -284,57 +286,41 @@
             const endpoint = `/data-api/rest/Appointments?$filter=Location_ID eq `;
             const response = await fetch(`${endpoint}${categoryEndpointFilter}`);
             const result = await response.json();
-            //console.table(result.value);=
+            //console.table(result.value);
+            var endTime = performance.now();
+            var totalResponseTime = endTime - startTime;
+            //console.log(totalResponseTime);
+            document.getElementById("databaseResponseTime").innerHTML += totalResponseTime.toFixed() + " miliseconds.";
             valueLength = result.value.length;
             valueLength += 1;
             for (let i = 1; i < valueLength; i++){
                 const gridContainer = document.querySelector('.grid-container');
-                const div = document.createElement('div');
-                gridContainer.append(div);
+                const table = document.createElement('table');
+                gridContainer.append(table);
         
-                div.classList.add("item-container" + (i));
-                div.id = 'icontainer';
+                table.classList.add("table" + (i));
+                table.id = 'itable';
+                table.innerHTML = "<tr><th>Field</th><th>Data</th></tr>";
             }
             valueLength2 = result.value.length;
             for (let i2 = 0; i2 < valueLength2; i2++){
                 item = result.value[i2];
                 console.log(item);
-                var itemContainer = document.querySelector('.item-container' + (i2 += 1));
+                var tablecontainer = document.querySelector('.table' + (i2 += 1));
                 id = item.Appointment_ID;
-                const line1 = document.createElement('l');
-                itemContainer.append(line1);
-                line1.innerText = "ID = " + id;
-                line1.id = 'aID';
+                tablecontainer.innerHTML += "<tr><td>Appointment ID</td><td>"+id+"</td></tr>";
                 pid = item.Patient_ID;
-                const line2 = document.createElement('l');
-                itemContainer.append(line2);
-                line2.innerText = "Patient = " + pid;
-                line2.id = 'aPatient';
+                tablecontainer.innerHTML += "<tr><td>Patient ID</td><td>"+pid+"</td></tr>";
                 lid = item.Location_ID;
-                const line3 = document.createElement('l');
-                itemContainer.append(line3);
-                line3.innerText = "Location = " + lid;
-                line3.id = 'aLocation';
+                tablecontainer.innerHTML += "<tr><td>Location ID</td><td>"+lid+"</td></tr>";
                 sid = item.Staff_ID;
-                const line4 = document.createElement('l');
-                itemContainer.append(line4);
-                line4.innerText = "Staff = " + sid;
-                line4.id = 'aStaff';
+                tablecontainer.innerHTML += "<tr><td>Staff ID</td><td>"+sid+"</td></tr>";
                 notes = item.Appointment_Notes;
-                const line5 = document.createElement('l');
-                itemContainer.append(line5);
-                line5.innerText = "City = " + notes;
-                line5.id = 'aNotes';
+                tablecontainer.innerHTML += "<tr><td>Notes</td><td>"+notes+"</td></tr>";
                 mid = item.Medicine_ID;
-                const line6 = document.createElement('l');
-                itemContainer.append(line6);
-                line6.innerText = "Country = " + mid;
-                line6.id = 'aMeds';
+                tablecontainer.innerHTML += "<tr><td>Medicine ID</td><td>"+mid+"</td></tr>";
                 date = item.Appointment_Date;
-                const line7 = document.createElement('l');
-                itemContainer.append(line7);
-                line7.innerText = "Postcode = " + date;
-                line7.id = 'aDate';
+                tablecontainer.innerHTML += "<tr><td>Appointment Date</td><td>"+date+"</td></tr>";
                 i2 -= 1;
             }
         }
